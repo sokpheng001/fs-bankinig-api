@@ -10,5 +10,4 @@ public record BaseResponse<T>(
         Date timeStamp,
         String message,
         T data
-) {
-}
+) { }

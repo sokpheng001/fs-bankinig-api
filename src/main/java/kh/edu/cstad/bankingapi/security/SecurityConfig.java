@@ -21,8 +21,7 @@ public class SecurityConfig {
         httpSecurity.cors(e->e.disable());
         httpSecurity
                 .authorizeHttpRequests(re->
-                                re.requestMatchers("/api/v1/customers")
-                                        .hasRole("admin")
+                                re
                                         .anyRequest()
                                         .permitAll());
         // using token to access the resource, but ignoring users' role
@@ -36,16 +35,5 @@ public class SecurityConfig {
         httpSecurity.httpBasic(e->e.disable());
         return httpSecurity.build();
     }
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//        UserDetails user1 = User.withUsername("admin")
-//                .password(passwordEncoder().encode("admin123"))
-//                .roles("USER")
-//                .build();
-//        return new InMemoryUserDetailsManager(user1);
-//    }
-//    @Bean
-//    public PasswordEncoder passwordEncoder(){
-//        return new BCryptPasswordEncoder();
-//    }
+
 }

@@ -29,7 +29,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     testImplementation 'org.springframework.security:spring-security-test'
 
-
     //Mapstruct
     compileOnly 'org.mapstruct:mapstruct:1.6.3'
     compileOnly 'org.projectlombok:lombok'
@@ -44,6 +43,8 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+// https://mvnrepository.com/artifact/org.keycloak/keycloak-admin-client
+    implementation 'org.keycloak:keycloak-admin-client:26.0.6'
 }
 
 tasks.named('test') {
