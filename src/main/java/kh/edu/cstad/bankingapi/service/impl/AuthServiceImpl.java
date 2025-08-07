@@ -99,8 +99,10 @@ public class AuthServiceImpl implements AuthService {
             UserResource userResource = realmResource.users().get(userId);
             //
             UserRepresentation user = userResource.toRepresentation();
-            user.setRequiredActions(List.of("VERIFY_EMAIL"));
+            List<String>actions  = List.of("VERIFY_EMAIL");
+            user.setRequiredActions(actions);
             userResource.update(user);
+            keycloak.realm(realmName).users().get(userId).executeActionsEmail(actions);
             return true;
         }catch (Exception ignore){}
         return false;
