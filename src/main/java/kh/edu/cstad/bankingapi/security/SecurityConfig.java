@@ -21,7 +21,8 @@ public class SecurityConfig {
         httpSecurity.cors(e->e.disable());
         httpSecurity
                 .authorizeHttpRequests(re->
-                                re
+                                re.requestMatchers("/api/v1/auth/reset-password")
+                                        .authenticated()
                                         .anyRequest()
                                         .permitAll());
         // using token to access the resource, but ignoring users' role
